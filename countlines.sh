@@ -1,6 +1,7 @@
-filename=$(basename $1)
+for file in $@; do
+filename=$(basename $file)
 echo The name of the file is $filename
-lines=$(wc -l < $1)
+lines=$(wc -l < $file)
 if [[ $lines -eq 0 ]]; then
 	echo The file has $lines lines
 elif [[ $lines -eq 1 ]]; then
@@ -8,4 +9,4 @@ elif [[ $lines -eq 1 ]]; then
 else
 	echo The file has $lines lines
 fi
-
+done
